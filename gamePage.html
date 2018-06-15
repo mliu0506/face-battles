@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <!--Google Login meta-->
+        <meta name="google-signin-client_id" content="170949236558-1u8u57pqk803ff8ig8q2vr581e3mc2oq.apps.googleusercontent.com">
+
+        <!--  Bootstrap 4 CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+        <!--Awesome Font  -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+        <!--Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+        
+        <!-- Siderbar CSS -->
+        <link rel="stylesheet" href="assets/css/sidebar.css">
+        
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="assets/css/coverflow.css">
+
+        <!-- Game Page Css-->
+        <link rel="stylesheet" href="assets/css/gamePage.css">
+
+        <title>Face Battles</title>
+    </head>
+    <body>
+        <!-- Navigation -->
+        <a id="menu-toggle" href="#" class="btn btn-light btn-sm toggle"><i class="fa fa-bars" data-toggle="tooltip" title="MENU"></i></a>
+        <nav id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <a id="menu-close" href="#" class="btn btn-light btn-sm float-right toggle" hidden><i class="fa fa-times"></i></a>
+                <li class="sidebar-brand">
+                    <a href="index.html" onclick="$('#menu-close').click();">Face Battles</a>
+                </li>
+                <li>
+                    <a href="chatroom.html" onclick="$('#menu-close').click();">User Login</a>
+                </li>
+                <li>
+                    <a href="gamehistory.html" onclick="$('#menu-close').click();">User Profile</a>
+                </li>
+                <li>
+                    <a href="chatroom.html" onclick="$('#menu-close').click();">Lobby / Chat Room</a>
+                </li>
+                <li>
+                    <a href="gameroom.html" onclick="$('#menu-close').click();">Game Room</a>
+                </li>
+                <li>
+                    <a id="signout" href="#" onclick="$('#menu-close').click();">User Logout</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- GAME PAGE -->
+        <BR>
+        <!--Game Zone-->
+        <section class="container-fluid">
+
+            <div class="row gameZone justify-content-center">
+                <!--Player Area-->
+                <div class="col-4">
+                    <section id="playerZone" class="gameBox">
+                        <h3 id="playerName">Player Zone</h3>
+                        <div class="imageBox">
+                            <div id="my_camera"></div> <!--Webcam attach here-->
+                            <div id="playerImage"></div>
+                        </div>
+                        <div id="playerScore">
+                            <p>Win: <span id="playerWin"></span></p>
+                            <p>Lose: <span id="playerLose"></span></p>
+                        </div>
+                    </section>
+                </div>
+                <!--Opponent Area-->
+                <div class="col-4">
+                    <section id="opponentZone" class="gameBox">
+                        <h3 id="opponentName">Opponent Zone</h3>
+                        <div class="imageBox">
+                            <div id="opponentImage"></div>
+                        </div>
+                        <div id="opponentScore">
+                            <p>Win: <span id="opponentWin"></span></p>
+                            <p>Lose: <span id="opponentLose"></span></p>
+                        </div>
+                    </section>
+                </div>
+             
+            </div>
+            <div class="row justify-content-center m-2">
+                <button id="leaveGame" class="btn btn-primary">Leave Game</button>
+            </div>  
+        </section>
+
+        <!--SCRIPTS-->
+        <!--  Bootstrap 4 JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <!-- Firebase Reference -->
+        <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+
+        <!-- AJAX Google jQuery CDN  -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery.js"></script>
+
+        <!-- Google Login-->
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+        <!--Custom JavaScript for this program-->
+        <script src="assets/javascript/app.js"></script>
+        <script src="assets/javascript/sidebar.js"></script>
+        <script src="assets/javascript/cookie.js"></script>
+        <script src="assets/javascript/gameroom.js"></script>
+        <!-- WebcamJS Library -->
+        <script src="assets/javascript/webcam.min.js"></script>
+        <!-- Game Logic JavaScript-->
+        <script src="assets/javascript/game.js"></script>
+    </body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--Google Login meta-->
+    <meta name="google-signin-client_id" content="170949236558-1u8u57pqk803ff8ig8q2vr581e3mc2oq.apps.googleusercontent.com">
+
+   
+    <title>Face Battles</title>
+
+    <!--  Bootstrap 4 CSS -->
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      
+    <!--Awesome Font  -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <!--Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+  
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="assets/css/chatroom.css">
+
+    <!-- Siderbar CSS -->
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+
+
+
+</head>
+<body>
+<!-- Navigation -->
+<a id="menu-toggle" href="#" class="btn btn-light btn-sm toggle"><i class="fa fa-bars" data-toggle="tooltip" title="MENU"></i></a>
+<nav id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <a id="menu-close" href="#" class="btn btn-light btn-sm float-right toggle" hidden><i class="fa fa-times"></i></a>
+    <li class="sidebar-brand">
+    <a href="index.html" onclick="$('#menu-close').click();">Face Battles</a>
+      
+    </li>
+    <li>
+    <a href="chatroom.html" onclick="$('#menu-close').click();">User Login</a>
+    </li>
+    <li>
+      <a href="gamehistory.html" onclick="$('#menu-close').click();">Photo Album</a>
+    </li>
+    <li>
+      <a href="chatroom.html" onclick="$('#menu-close').click();">Lobby / Chat Room</a>
+    </li>
+    <li>
+      <a href="gameroom.html" onclick="$('#menu-close').click();">Game Room</a>
+    </li>
+    <li>
+      <a href="gamePage.html" onclick="$('#menu-close').click();">Game Page</a>
+    </li>
+    <li>
+      <a id="signout" href="#" onclick="$('#menu-close').click();">User Logout</a>
+    </li>
+  </ul>
+</nav>
+
+
+
+
+<!-- Chat Room -->
+<div class="container">
+  <div class="people-list" id="people-list">
+    <div class="search">
+      <input type="text" placeholder="search" />
+      <i class="fa fa-search"></i>
+    </div>
+<!-- User List-->
+    <ul class="list">
+  </div>
+
+  
+<!--My Chat Header -->      
+     
+  <div class="chat">
+    <div class="chat-header clearfix">
+      <!--Google Sign-in button -->
+      <div id="signin" class="g-signin2 justify-content-right" data-onsuccess="onSignIn"></div>
+      <div class="user-photo"></div>
+    
+      <div class="chat-about">
+        <div class="chat-with"></div>
+        <div class="chat-num-messages"></div>
+        <button class="create-game">
+            Create Game
+        </button>
+        <button class="delete-game">
+          Delete Game
+      </button>
+      </div>
+      <i class="fa fa-star"></i>
+      
+
+    </div> <!-- end chat-header -->
+
+    <!-- Chat Message -->   
+    <div class="chat-history">
+      <ul class="message-box">
+                
+      </ul>
+      
+    </div> <!-- end chat-history -->
+    
+    <div class="chat-message clearfix">
+      <textarea name="message-to-send" id="message-to-send" placeholder ="Type your message" rows="3"></textarea>
+              
+      <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
+      <i class="fa fa-file-image-o"></i>
+      
+      <button class="chat-submit">Send</button>
+
+    </div> <!-- end chat-message -->
+    
+  </div> <!-- end chat -->
+  
+</div> <!-- end container -->
+
+<!-- Game Room-->
+
+
+
+
+<!--  Bootstrap 4 JavaScript -->
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<!-- Firebase Reference -->
+
+<script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+
+<!-- AJAX Google jQuery CDN  -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+ <!-- jQuery -->
+ <script src="https://code.jquery.com/jquery.js"></script>
+
+<!-- Google Login-->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
+<!-- This program java script-->
+<script src="assets/javascript/app.js"></script>
+
+<!-- This program java script-->
+<script src="assets/javascript/sidebar.js"></script>
+
+<!-- This program java script-->
+<script src="assets/javascript/cookie.js"></script>
+
+</body>
+</html>

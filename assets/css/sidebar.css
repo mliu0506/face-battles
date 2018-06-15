@@ -1,0 +1,126 @@
+/* Custom Button Styles */
+
+button {
+  border-radius: 5px;
+}
+
+.btn-dark {
+  color: rgb(240,165,31);
+  background-color: rgba(132, 11, 42, 1); /* egglant */
+  font-size: 1.5em;
+}
+
+.btn-dark:hover,
+.btn-dark:focus,
+.btn-dark:active {
+  background-color: rgb(248, 12, 71);
+  font-size: 1.5em;
+}
+
+.btn-light {
+  color: #333;
+  background-color: rgb(255, 255, 255);
+}
+
+.btn-light:hover,
+.btn-light:focus,
+.btn-light:active {
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* Side Menu */
+
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  margin-right: -250px;
+  overflow-y: auto;
+  background: white;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  -ms-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar-nav li {
+  text-indent: 20px;
+  line-height: 40px;
+
+}
+
+.sidebar-nav li a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  font-family: 'Muli', sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  
+}
+
+.sidebar-nav li a:hover {
+  text-decoration: none;
+  color: white;
+  background: rgb(102, 102, 102, 0.8);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+  height: 55px;
+  font-size: 18px;
+  line-height: 55px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+  color: black;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+  
+  background: none;
+  color: white;
+  background: rgb(102, 102, 102, 0.8);
+}
+
+#menu-toggle {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+#sidebar-wrapper.active {
+  right: 250px;
+  width: 250px;
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  -ms-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+.toggle {
+  margin: 5px 5px 0 0;
+}

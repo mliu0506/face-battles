@@ -1,0 +1,73 @@
+body{
+    color: black;
+    overflow: scroll;
+    z-index: 0;
+}
+header{
+    color: black;
+    text-align: center;
+}
+
+.gameZone{
+    height: 70vh;
+}
+
+.gameBox{
+    border: 4px inset gray;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.imageBox{
+    width: 90%;
+    height: 40vh;
+    border: 1px solid black;
+    margin: 3vh;
+}
+
+.gameImages{
+    max-width: 80%;
+    height: 80%;
+    object-fit: cover;
+}
+
+#messageList{
+    height: 62vh;
+    resize: none;
+}
+
+#my_camera{
+    width: 100%;
+    height: 35vh;
+    z-index: 1;
+    display: none;
+}
+
+@media only screen and (max-width: 600px){
+    body{
+        line-height: 1.3;
+    }
+    .gameZone{
+        height: 50vh;
+    }
+
+    .imageBox{
+        height: 30vh;
+    }
+
+    .gameImages{
+        width: 90%;
+        height: 80%;
+    }
+
+    #messageList{
+        height: 42vh;
+    }
+    h3{
+        font-size: 20px;
+    }
+    p{
+        font-size: 10px;
+    }
+}
