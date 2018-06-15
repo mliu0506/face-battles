@@ -323,7 +323,7 @@ $(function(){
             camOn = true;
         }
         playerRef.update({status: 'stand_by'});
-        //startRPS();
+        startRPS();
     });
 
     //Click event for local message field submit
