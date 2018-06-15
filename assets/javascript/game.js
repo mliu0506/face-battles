@@ -43,7 +43,7 @@ $(function(){
             delCookie("p2gameID");
             });
             console.log("Game Start")
-            makeButton();
+            makeButton(); //for palyer 2
             gamesRef.child(gameID).update({status:'game_running'});
     }
     
@@ -53,7 +53,10 @@ $(function(){
 
     //Listen event for game status
     gamesRef.child(gameID).on('value', function(snapshot){
-        if(!(snapshot.child('players').child('player2').exists())){
+        if (snapshot.val().status == "game_running"){
+            console.log("Game Start")
+            makeButton();  //for player 1
+        }else if(!(snapshot.child('players').child('player2').exists())){
             //No player 2 or player 2 left
             console.log("NO PLAYER 2");
             if(camOn){
