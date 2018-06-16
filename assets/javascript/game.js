@@ -27,14 +27,14 @@ $(function(){
     var p2gameID = getCookie("p2gameID");
     console.log("gameJS Cookie: " + p2gameID);
     //Idenfiy the Player 1
-    if ((p1gameID != "") || (p1gameID != undefined)) {
+    if ((p1gameID !== "") || (p1gameID !== undefined)) {
         gameID = p1gameID;
         //Display player1 name
         gamesRef.child(gameID).child("players").once('value', function(snapshot){
             $("#playerName").text(snapshot.val().player1.name);
             delCookie("p1gameID");
         });
-    }else if ((p2gameID != "") || (p2gameID != undefined)){
+    }else if ((p2gameID !== "") || (p2gameID !== undefined)){
         //Idenfiy the player2 
             gameID = p2gameID;
             gamesRef.child(gameID).child("players").once('value', function(snapshot){
