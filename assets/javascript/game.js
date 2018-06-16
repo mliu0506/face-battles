@@ -331,7 +331,7 @@ $(function(){
 
 
     //Click event for gameReady button
-    $("#gameReady").on("click", function(){
+    $(".gameZone").on("click","#gameReady", function(){
         //Active and attach camera to DOM element
         console.log("button clicked");
         $("#playerImage").empty();
