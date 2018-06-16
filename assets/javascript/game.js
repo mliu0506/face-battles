@@ -133,14 +133,14 @@ $(function(){
             makeButton();
         }
         //Display player score
-       // if (userKey == gameID){
+       if (userKey == gameID){
        //     $("#playerName").text(playerSnap.val().player1.name);
-       //     var opponentRef = playerSnap.val().player2;
-       // }
-       // else{
+            var opponentRef = playerSnap.val().player2;
+        }
+       else{
        //     $("#playerName").text(playerSnap.val().player2.name);
-       //     var opponentRef = playerSnap.val().player1;
-       // }
+            var opponentRef = playerSnap.val().player1;
+        }
         $("#playerWin").text(winScore);
         $("#playerLose").text(loseScore);
         if(opponentRef != null){
