@@ -52,23 +52,27 @@ $(function(){
     
     
     //Firebase Listeners
-        //Firebase Listeners
-        gamesRef.on('value',function(snapshot){
+
+    gamesRef.on('value',function(snapshot){
             if(!(snapshot.child(gameID).exists())){
                 //Game got removed or doesn't exist
                 console.log("Game does not exist");
                 document.location.href = "index.html";
             }
-        });
+    });
 
 
     //Listen event for game status
     gamesRef.child(gameID).on('value', function(snapshot){
+       
         if (snapshot.val().status == "game_running"){
             console.log("Game Running")
-            $("#opponentName").text(snapshot.val().players.player2.name);
+            if (isPlayer2 == false){ //update the Player 1's opponent name when Player 2 joined
+                $("#opponentName").text(snapshot.val().players.player2.name);
+            }
             makeButton();
         }
+        
         if(!(snapshot.child('players').child('player2').exists())){
             //No player 2 or player 2 left
             console.log("NO PLAYER 2");
@@ -343,9 +347,10 @@ $(function(){
 
 
     //Click event for gameReady button
-    $("#playerZone").on("click", $("gameReady"), function(){
+    $("#playerZone").on("click", "#gameReady", function(){
         console.log("button clicked");
         $("#playerImage").empty();
+        $("#gameReady").empty();
         $("#my_camera").css({display: 'block'});
         if (!camOn){
             //Active and attach camera to DOM element
