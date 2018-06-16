@@ -41,7 +41,7 @@ $(function(){
             playerRef = gamesRef.child(gameID).child("players").child("player2");
             delCookie("p2gameID");
             gamesRef.child(gameID).child("players").once('value', function(snapshot){
-                var playerRef = database.ref('games/players/player2/');
+                playerRef = gamesRef.child(gameID).child("players").child("player1");
                 $("#playerName").text(snapshot.val().player2.name);
                 $("#opponentName").text(snapshot.val().player1.name); 
             });
@@ -149,7 +149,7 @@ $(function(){
                 timestamp: timestamp
             });
             }
-            //makeButton();
+            makeButton();
         }
         //Display player score
        if (userKey == gameID){
@@ -232,7 +232,7 @@ $(function(){
             if(response.faces[0] == null){
                 //Face++ could not detect a face in the given image, retake picture.
                 $("#playerImage").text("Take Picture Again");
-                //setTimeout(startRPS, 2000);
+                setTimeout(startRPS, 2000);
                 //DEBUG LOG
                 console.log("Take Picture Again");
             }
@@ -360,7 +360,7 @@ $(function(){
             camOn = true;
         }
         playerRef.update({status: 'stand_by'});
-        //startRPS();
+
     });
 
 
