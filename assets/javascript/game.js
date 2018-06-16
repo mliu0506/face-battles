@@ -47,7 +47,7 @@ $(function(){
             });
             console.log("Game Start")
              //Game Start when palyer 2 joined
-            gamesRef.child(gameID).update({status:'game_running'});
+            gamesRef.child(gameID).update({status:'game_started'});
     }
     
     
@@ -65,12 +65,14 @@ $(function(){
     //Listen event for game status
     gamesRef.child(gameID).on('value', function(snapshot){
        
-        if (snapshot.val().status == "game_running"){
+        if (snapshot.val().status == "game_started"){
             console.log("Game Running")
             if (isPlayer2 == false){ //update the Player 1's opponent name when Player 2 joined
                 $("#opponentName").text(snapshot.val().players.player2.name);
             }
             makeButton();
+            gamesRef.child(gameID).update({status:'game_running'});
+
         }
         
         if(!(snapshot.child('players').child('player2').exists())){
@@ -230,7 +232,7 @@ $(function(){
             if(response.faces[0] == null){
                 //Face++ could not detect a face in the given image, retake picture.
                 $("#playerImage").text("Take Picture Again");
-                setTimeout(startRPS, 2000);
+                //setTimeout(startRPS, 2000);
                 //DEBUG LOG
                 console.log("Take Picture Again");
             }
