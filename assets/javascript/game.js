@@ -55,7 +55,7 @@ $(function(){
     gamesRef.child(gameID).on('value', function(snapshot){
         if (snapshot.val().status == "game_running"){
             console.log("Game Start")
-            $("#opponentName").text(snapshot.val().player2.name);
+            $("#opponentName").text(snapshot.val().players.player2.name);
             makeButton();  //for player 1
         }
         if(!(snapshot.child('players').child('player2').exists())){
