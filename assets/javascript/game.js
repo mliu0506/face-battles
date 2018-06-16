@@ -29,20 +29,20 @@ $(function(){
     //Idenfiy the Player 1
     if ((p1gameID !== "") || (p1gameID == undefined)) {
         gameID = p1gameID;
+        delCookie("p1gameID");
         //Display player1 name
-        gamesRef.child(gameID).child("players").once('value', function(snapshot){
+        gamesRef.child(gameID).child("players").on('value', function(snapshot){
             playerRef = gamesRef.child(gameID).child("players").child("player1");
             $("#playerName").text(snapshot.val().player1.name);
-            delCookie("p1gameID");
         });
     }else if ((p2gameID !== "") || (p2gameID == undefined)){
         //Idenfiy the player2 
             gameID = p2gameID;
-            gamesRef.child(gameID).child("players").once('value', function(snapshot){
+            delCookie("p2gameID");
+            gamesRef.child(gameID).child("players").on('value', function(snapshot){
                 playerRef = gamesRef.child(gameID).child("players").child("player2");
                 $("#playerName").text(snapshot.val().player2.name);
-                $("#opponentName").text(snapshot.val().player1.name);
-                delCookie("p2gameID");
+                $("#opponentName").text(snapshot.val().player1.name); 
             });
             console.log("Game Start")
              //Game Start when palyer 2 joined
