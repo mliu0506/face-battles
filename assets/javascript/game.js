@@ -45,7 +45,7 @@ $(function(){
                 delCookie("p2gameID");
             });
             console.log("Game Start")
-            makeButton(); //for palyer 2
+             //Game Start when palyer 2 joined
             gamesRef.child(gameID).update({status:'game_running'});
     }
     
@@ -56,9 +56,9 @@ $(function(){
     //Listen event for game status
     gamesRef.child(gameID).on('value', function(snapshot){
         if (snapshot.val().status == "game_running"){
-            console.log("Game Start")
+            console.log("Game Running")
             $("#opponentName").text(snapshot.val().players.player1.name);
-            makeButton();  //for player 1
+            makeButton();
         }
         if(!(snapshot.child('players').child('player2').exists())){
             //No player 2 or player 2 left
