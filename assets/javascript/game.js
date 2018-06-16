@@ -149,7 +149,7 @@ $(function(){
                 timestamp: timestamp
             });
             }
-            makeButton();
+            //makeButton();
         }
         //Display player score
        if (userKey == gameID){
@@ -249,7 +249,7 @@ $(function(){
                         emotion = "Happy";
                         break;
                     case emotions.surprise:
-                        emotion = "Surprise";
+                        emotion = "Suprise";
                         break;
                     case emotions.neutral:
                         emotion = "Neutral";
