@@ -31,12 +31,14 @@ $(function(){
         delCookie("p1gameID");
         //Display player1 name
         gamesRef.child(gameID).child("players").once('value', function(snapshot){
-            var playerRef = database.ref('games/players/player1/');
+            playerRef = gamesRef.child(gameID).child("players").child("player1");
             $("#playerName").text(snapshot.val().player1.name);
         });
     }else if ((p2gameID !== "") || (p2gameID == undefined)){
         //Idenfiy the player2 
+            isPlayer2 = true;
             gameID = p2gameID;
+            playerRef = gamesRef.child(gameID).child("players").child("player2");
             delCookie("p2gameID");
             gamesRef.child(gameID).child("players").once('value', function(snapshot){
                 var playerRef = database.ref('games/players/player2/');
@@ -50,6 +52,14 @@ $(function(){
     
     
     //Firebase Listeners
+        //Firebase Listeners
+        gamesRef.on('value',function(snapshot){
+            if(!(snapshot.child(gameID).exists())){
+                //Game got removed or doesn't exist
+                console.log("Game does not exist");
+                document.location.href = "index.html";
+            }
+        });
 
 
     //Listen event for game status
@@ -76,10 +86,6 @@ $(function(){
             $("#opponentLose").empty();
             gamesRef.child(gameID).update({status:'pending'});
         }
-        if(snapshot == null){
-            //Game got removed
-            document.location.href = "index.html";
-        }
     });
 
     //Listen event for players status
@@ -88,7 +94,6 @@ $(function(){
             startRPS();
         }
         else if (playerSnap.val().player1.status == 'picture_taken' && playerSnap.val().player2.status == 'picture_taken'){
-            playerRef.update({status: 'pending_results'});
             if (isPlayer2){
                 var choice = playerSnap.val().player2.emotion;
                 var name = playerSnap.val().player2.name;
@@ -101,28 +106,35 @@ $(function(){
                 var result = compareFace(choice, playerSnap.val().player2.emotion);
                 displayOpponentImage(playerSnap.val().player2.img, playerSnap.val().player2.emotion, playerSnap.val().player2.likely);
             }
-            //update scores
-            switch (result){
-                case 'win':
-                    playerRef.update({win: winScore++});
-                   
-                    $("#playerImage").html("<p>You Win!</P>");
-                    $("#opponentImage").html("<p>You Lost!</P>");
-                    break;
-                case 'lose':
-                    playerRef.update({lose: loseScore++});
-                 
-                    $("#playerImage").html("<p>You Lost!</P>");
-                    $("#opponentImage").html("<p>You Win!</P>");
-                    break;
-                default:
-                    $("#playerImage").html("<p>Draw!</P>");
-                    $("#opponentImage").html("<p>Draw!</P>");
-            }
-            //update in history
-            var d = new Date();
-            var timestamp = d.toUTCString();
-            historyRef.push({
+           //update scores
+           switch (result){
+            case 'win':
+                $("#playerImage").append("<p>You Win!</P>");
+                $("#opponentImage").append("<p>You Lost!</P>");
+                playerRef.update({
+                    win: winScore++,
+                    status: 'pending_results'
+                });
+                break;
+            case 'lose':
+                $("#playerImage").append("<p>You Lost!</P>");
+                $("#opponentImage").append("<p>You Win!</P>");
+                playerRef.update({
+                    lose: loseScore++,
+                    status: 'pending_results'
+                });
+                break;
+            default:
+                $("#playerImage").append("<p>Draw!</P>");
+                $("#opponentImage").append("<p>Draw!</P>");
+                playerRef.update({status: 'pending_results'});
+        }
+             //update in history
+             if (result != undefined || result != null){
+                console.log("HISTORY");
+                var d = new Date();
+                var timestamp = d.toUTCString();
+                historyRef.push({
                 uID: userKey,
                 name: name,
                 gamephoto: imgData,
@@ -130,7 +142,7 @@ $(function(){
                 choice: choice,
                 timestamp: timestamp
             });
-         
+            }
             makeButton();
         }
         //Display player score
