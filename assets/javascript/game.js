@@ -9,7 +9,6 @@ $(function(){
     var messageList = $("#messageList"); //Variable for local chat messages
     var isPlayer2 = false;
     var camOn = false;
-    var playerRef;
     var imgData;
     //Variables for local game score
     var winScore = 0;
@@ -31,16 +30,16 @@ $(function(){
         gameID = p1gameID;
         delCookie("p1gameID");
         //Display player1 name
-        gamesRef.child(gameID).child("players").on('value', function(snapshot){
-            playerRef = gamesRef.child(gameID).child("players").child("player1");
+        gamesRef.child(gameID).child("players").once('value', function(snapshot){
+            var playerRef = database.ref('games/players/player1/');
             $("#playerName").text(snapshot.val().player1.name);
         });
     }else if ((p2gameID !== "") || (p2gameID == undefined)){
         //Idenfiy the player2 
             gameID = p2gameID;
             delCookie("p2gameID");
-            gamesRef.child(gameID).child("players").on('value', function(snapshot){
-                playerRef = gamesRef.child(gameID).child("players").child("player2");
+            gamesRef.child(gameID).child("players").once('value', function(snapshot){
+                var playerRef = database.ref('games/players/player2/');
                 $("#playerName").text(snapshot.val().player2.name);
                 $("#opponentName").text(snapshot.val().player1.name); 
             });
