@@ -41,7 +41,7 @@ $(function(){
             playerRef = gamesRef.child(gameID).child("players").child("player2");
             delCookie("p2gameID");
             gamesRef.child(gameID).child("players").once('value', function(snapshot){
-                playerRef = gamesRef.child(gameID).child("players").child("player1");
+                playerRef = gamesRef.child(gameID).child("players").child("player2");
                 $("#playerName").text(snapshot.val().player2.name);
                 $("#opponentName").text(snapshot.val().player1.name); 
             });
