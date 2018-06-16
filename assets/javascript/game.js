@@ -31,6 +31,7 @@ $(function(){
         gameID = p1gameID;
         //Display player1 name
         gamesRef.child(gameID).child("players").once('value', function(snapshot){
+            playerRef = gamesRef.child(gameID).child("players").child("player1");
             $("#playerName").text(snapshot.val().player1.name);
             delCookie("p1gameID");
         });
@@ -38,9 +39,10 @@ $(function(){
         //Idenfiy the player2 
             gameID = p2gameID;
             gamesRef.child(gameID).child("players").once('value', function(snapshot){
-            $("#playerName").text(snapshot.val().player2.name);
-            $("#opponentName").text(snapshot.val().player1.name);
-            delCookie("p2gameID");
+                playerRef = gamesRef.child(gameID).child("players").child("player2");
+                $("#playerName").text(snapshot.val().player2.name);
+                $("#opponentName").text(snapshot.val().player1.name);
+                delCookie("p2gameID");
             });
             console.log("Game Start")
             makeButton(); //for palyer 2
@@ -55,7 +57,7 @@ $(function(){
     gamesRef.child(gameID).on('value', function(snapshot){
         if (snapshot.val().status == "game_running"){
             console.log("Game Start")
-            $("#opponentName").text(snapshot.val().players.player2.name);
+            $("#opponentName").text(snapshot.val().players.player1.name);
             makeButton();  //for player 1
         }
         if(!(snapshot.child('players').child('player2').exists())){
