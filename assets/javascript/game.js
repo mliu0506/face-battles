@@ -66,7 +66,7 @@ $(function(){
     gamesRef.child(gameID).on('value', function(snapshot){
         if (snapshot.val().status == "game_running"){
             console.log("Game Running")
-            $("#opponentName").text(snapshot.val().players.player1.name);
+            $("#opponentName").text(snapshot.val().players.player2.name);
             makeButton();
         }
         if(!(snapshot.child('players').child('player2').exists())){
@@ -143,7 +143,7 @@ $(function(){
                 timestamp: timestamp
             });
             }
-            makeButton();
+            //makeButton();
         }
         //Display player score
        if (userKey == gameID){
@@ -343,12 +343,12 @@ $(function(){
 
 
     //Click event for gameReady button
-    $(".gameZone").on("click","#gameReady", function(){
-        //Active and attach camera to DOM element
+    $("#playerZone").on("click", $("gameReady"), function(){
         console.log("button clicked");
         $("#playerImage").empty();
         $("#my_camera").css({display: 'block'});
         if (!camOn){
+            //Active and attach camera to DOM element
             Webcam.attach('#my_camera');
             camOn = true;
         }
@@ -356,14 +356,7 @@ $(function(){
         //startRPS();
     });
 
-    //Click event for local message field submit
-    $("#submitMessage").on("click", function(event){
-        event.preventDefault();
-        var message = $("#message").val();
-        sendChatMessage(message);
-        //Clear chat fields
-        $("#message").val("");
-    });
+
 
     //TODO//
     //Click event for leaving game
