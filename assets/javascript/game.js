@@ -27,14 +27,14 @@ $(function(){
     var p2gameID = getCookie("p2gameID");
     console.log("gameJS Cookie: " + p2gameID);
     //Idenfiy the Player 1
-    if ((p1gameID != "") || (p1gameID = null)) {
+    if ((p1gameID != "") || (p1gameID != null)) {
         gameID = p1gameID;
         //Display player1 name
         gamesRef.child(gameID).child("players").once('value', function(snapshot){
             $("#playerName").text(snapshot.val().player1.name);
             delCookie("p1gameID");
         });
-    }else {
+    }else if ((p2gameID != "") || (p2gameID != null)){
         //Idenfiy the player2 
             gameID = p2gameID;
             gamesRef.child(gameID).child("players").once('value', function(snapshot){
@@ -57,7 +57,8 @@ $(function(){
             console.log("Game Start")
             $("#opponentName").text(snapshot.val().player2.name);
             makeButton();  //for player 1
-        }else if(!(snapshot.child('players').child('player2').exists())){
+        }
+        if(!(snapshot.child('players').child('player2').exists())){
             //No player 2 or player 2 left
             console.log("NO PLAYER 2");
             if(camOn){
@@ -131,7 +132,22 @@ $(function(){
          
             makeButton();
         }
-            });
+        //Display player score
+       // if (userKey == gameID){
+       //     $("#playerName").text(playerSnap.val().player1.name);
+       //     var opponentRef = playerSnap.val().player2;
+       // }
+       // else{
+       //     $("#playerName").text(playerSnap.val().player2.name);
+       //     var opponentRef = playerSnap.val().player1;
+       // }
+        $("#playerWin").text(winScore);
+        $("#playerLose").text(loseScore);
+        if(opponentRef != null){
+            $("#opponentWin").text(opponentRef.win);
+            $("#opponentLose").text(opponentRef.lose);
+        }
+    });
 
 
     
@@ -184,8 +200,8 @@ $(function(){
             url: queryURL,
             method: "POST",
             data: {
-                api_key: "-8C4WG8ut30x5f95uvD5KPtfIth1wgnS",
-                api_secret: "6uz6xBUtQLmoCidpBpHiaoT_6FMIFvvc",
+                api_key: "-5Nmk0fyCtdxK_l0lEvhOpHBMXj8g2Q7",
+                api_secret: "QpE4oXV2onpKepQ65Nx0gE99-50Xmwrj",
                 return_attributes: "emotion",
                 image_base64: data64
             }
@@ -197,7 +213,7 @@ $(function(){
             if(response.faces[0] == null){
                 //Face++ could not detect a face in the given image, retake picture.
                 $("#playerImage").text("Take Picture Again");
-                makeButton();
+                setTimeout(startRPS, 2000);
                 //DEBUG LOG
                 console.log("Take Picture Again");
             }
@@ -324,7 +340,7 @@ $(function(){
             camOn = true;
         }
         playerRef.update({status: 'stand_by'});
-        startRPS();
+        //startRPS();
     });
 
     //Click event for local message field submit
