@@ -115,24 +115,24 @@ $(function(){
            //update scores
            switch (result){
             case 'win':
-                $("#playerImage").append("<p>You Win!</P>");
-                $("#opponentImage").append("<p>You Lost!</P>");
+                $("#playerImage").append("<p>You Win!</p>");
+                $("#opponentImage").append("<p>You Lost!</p>");
                 playerRef.update({
                     win: winScore++,
                     status: 'pending_results'
                 });
                 break;
             case 'lose':
-                $("#playerImage").append("<p>You Lost!</P>");
-                $("#opponentImage").append("<p>You Win!</P>");
+                $("#playerImage").append("<p>You Lost!</p>");
+                $("#opponentImage").append("<p>You Win!</p>");
                 playerRef.update({
                     lose: loseScore++,
                     status: 'pending_results'
                 });
                 break;
             default:
-                $("#playerImage").append("<p>Draw!</P>");
-                $("#opponentImage").append("<p>Draw!</P>");
+                $("#playerImage").append("<p>Draw!</p>");
+                $("#opponentImage").append("<p>Draw!</p>");
                 playerRef.update({status: 'pending_results'});
         }
              //update in history
