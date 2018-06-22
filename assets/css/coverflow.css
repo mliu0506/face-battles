@@ -295,6 +295,19 @@ body {
 
 }
   
- 
+@media only screen and (max-width: 600px){
   
-  
+.coverflow__image {
+	width: 200px;
+	height: 200px;
+	}
+
+.coverflow {
+	height: 360px;
+	width: 150%;
+	padding: 100px;
+	}
+
+
+	
+}

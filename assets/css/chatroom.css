@@ -20,7 +20,7 @@ body {
 .container {
   display: flex;
   margin: 0 auto;
-  width: 750px;
+  width: 100%;
   background: #444753;
   border-radius: 5px;
   justify-content: center;
@@ -38,7 +38,7 @@ body {
 
 .history {
 	display: flex;
-	width:750px;
+	width:100%;
 	margin: 0 auto;
 	justify-content: center;
 	background: #444753;
@@ -46,11 +46,11 @@ body {
   }
 
 .people-list {
-  width: 260px;
+  width: 30%;
   float: left;
 }
 .people-list .search {
-  padding: 20px;
+  padding: 5px;
 }
 .people-list input {
   border-radius: 3px;
@@ -89,7 +89,7 @@ body {
 }
 
 .chat {
-  width: 490px;
+  width: 80%;
   float: left;
   background: #F2F5F8;
   border-top-right-radius: 5px;

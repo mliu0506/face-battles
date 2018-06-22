@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
 
         <!--Google Login meta-->
         <meta name="google-signin-client_id" content="369092792103-ekret3hb9qh5jtrdp1s0a15ql067378n.apps.googleusercontent.com">
@@ -20,8 +20,7 @@
         <!-- Siderbar CSS -->
         <link rel="stylesheet" href="assets/css/sidebar.css">
         
-        <!-- Style CSS -->
-        <link rel="stylesheet" href="assets/css/coverflow.css">
+
 
         <!-- Game Page Css-->
         <link rel="stylesheet" href="assets/css/gamePage.css">
@@ -41,7 +40,7 @@
                     <a href="chatroom.html" onclick="$('#menu-close').click();">User Login</a>
                 </li>
                 <li>
-                    <a href="gamehistory.html" onclick="$('#menu-close').click();">User Profile</a>
+                    <a href="gamehistory.html" onclick="$('#menu-close').click();">Photo Album</a>
                 </li>
                 <li>
                     <a href="chatroom.html" onclick="$('#menu-close').click();">Lobby / Chat Room</a>
@@ -59,9 +58,6 @@
         <BR>
         <!--Game Zone-->
         <section class="container-fluid">
-            <div class="row justify-content-center m-2">
-                        <button id="leaveGame" class="btn btn-primary">Leave Game</button>
-            </div>  
             <div class="row gameZone justify-content-center">
                 <!--Player Area-->
                 <div class="col-10 col-sm-6 col-md-4 p-0">
@@ -92,11 +88,13 @@
                         </div>
                     </section>
                 </div>
-            </div>
-
-       
+            </div> 
+            <BR>
+            <div class="row col-12 justify-content-center">
+                <button id="leaveGame" class="btn">Leave Game</button>
+            </div>       
         </section>
-
+ 
         <!--SCRIPTS-->
         <!--  Bootstrap 4 JavaScript -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
