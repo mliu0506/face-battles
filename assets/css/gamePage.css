@@ -54,12 +54,12 @@ header{
     }
 
     .imageBox{
-        height: 40vh;
+        height: 30vh;
     }
 
     .gameImages{
-        width: 100%;
-        height: 100%;
+        width: 50%;
+        height: 50%;
     }
 
     #messageList{
