@@ -143,7 +143,7 @@ body {
   font-size: 16px;
   border-radius: 7px;
   margin-bottom: 30px;
-  width: 90%;
+  width: 60%;
   position: relative;
 }
 .chat .chat-history .message:after {
@@ -240,3 +240,22 @@ body {
 
 
 
+@media only screen and (max-width: 800px){
+  .chat {
+    width: 100%;
+
+  }
+
+  .chat .chat-history .other-message:after {
+    left: 80%;
+  }
+  .chat .chat-history .message {
+
+    width: 100%;
+
+  }
+
+  .chat .chat-history .message:after {
+    left: 20%;
+  }
+}
