@@ -3,13 +3,18 @@
 --------------------------------*/
 
 var a = document.getElementsByTagName("a");
-var cfImg = document.getElementsByClassName("coverflow__image")
+var cfImg = document.getElementsByClassName("coverflow__image");
+var aCoverFlow = document.getElementsByClassName("a_coverflow");
 
 var scaleI = 0;
-for (scaleI; scaleI < a.length; scaleI++) {
+for (scaleI; scaleI < aCoverFlow.length; scaleI++) {
   if (scaleI === 3) {
     continue;
   } 
+  else {
+    aCoverFlow[scaleI].style.cursor = "default";
+    aCoverFlow[scaleI].addEventListener("click", prevDef);
+  }
 }
 
 function prevDef(e) {
@@ -17,6 +22,10 @@ function prevDef(e) {
 }
 
 function forScale(coverflowPos) {
+  for (scaleI = 0; scaleI < aCoverFlow.length; scaleI++) {
+    aCoverFlow[scaleI].style.cursor = "default";
+    aCoverFlow[scaleI].addEventListener("click", prevDef);
+  }
 
   for (scaleI = 0; scaleI < cfImg.length; scaleI++) {
     if (cfImg[scaleI].getAttribute("data-coverflow-index") == coverflowPos) {
