@@ -50,7 +50,7 @@ body {
   float: left;
 }
 .people-list .search {
-  padding: 10px 0;
+  padding: 20px 0 0 10px;
 }
 .people-list input {
   border-radius: 3px;
@@ -257,5 +257,9 @@ body {
 
   .chat .chat-history .message:after {
     left: 20%;
+  }
+
+  .people-list .search {
+    padding: 20px 5px 0 0;
   }
 }
