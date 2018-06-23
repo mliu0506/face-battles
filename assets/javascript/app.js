@@ -223,13 +223,14 @@ function renderChatRoomHeader() {
 
   function createGameRoom() {
     $(".create-game").on("click",function(){
+    if (userKey != "") {
       gameID = userKey;
       //tempRef.update({gameID:gameID});
       setCookie("p1gameID", gameID, 30); //save the uID into the cookie
       var d = new Date();
       var timestamp = d.toUTCString();
       console.log("Create Game : "+ gameID);
-      if(gameID !== ""){
+      if(gameID != ""){
         gamesRef.child(gameID).update({status:'pending',name:name,photo:photo,timestamp:timestamp});
         gamesRef.child(gameID).child("players").child("player1").update({uID:userKey,win:0,lose:0,name:name,status:'pending_player2'});
         $(".delete-game").show();
@@ -237,18 +238,21 @@ function renderChatRoomHeader() {
       }
       //window.open("gamePage.html", '_blank');  //open a new  window
       document.location.href = "gamePage.html";   //open the same window
+    }
     });
 
     $(".delete-game").on("click",function(){
+    if (userKey != "") {
       gameID = userKey;
       var d = new Date();
       var timestamp = d.toUTCString();
       console.log("Delete Game : "+gameID);
-      if(gameID !== ""){
+      if(gameID != ""){
         gamesRef.child(gameID).remove();
         $(".delete-game").hide();
         $(".create-game").show();
-      } 
+      }
+    } 
     });
   }
 
