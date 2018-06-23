@@ -93,7 +93,7 @@ function startGame() {
           name = childSnapshot.val().name;
         });
         userKey = cookieKey;
-        //gameID = userKey;
+  
       }
     }
     
@@ -228,7 +228,7 @@ function renderChatRoomHeader() {
     $(".create-game").on("click",function(){
     if (userKey != "") {
       gameID = userKey;
-      //tempRef.update({gameID:gameID});
+     
       setCookie("p1gameID", gameID, 30); //save the uID into the cookie
       var d = new Date();
       var timestamp = d.toUTCString();
@@ -238,8 +238,9 @@ function renderChatRoomHeader() {
         gamesRef.child(gameID).child("players").child("player1").update({uID:userKey,win:0,lose:0,name:name,status:'pending_player2'});
         $(".delete-game").show();
         $(".create-game").hide();
+        chatRef.push({uID:userKey,name:name,photo:photo,message:"Who wanna to Face Battles with " + name + ", please join the game in game room.",timestamp:timestamp});
       }
-      //window.open("gamePage.html", '_blank');  //open a new  window
+      
       document.location.href = "gamePage.html";   //open the same window
     }
     });
