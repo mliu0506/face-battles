@@ -250,7 +250,7 @@ body {
   .message-data-time {
     font-size: 0.8em;
   }
-  .message-data-name, .name {
+  .message-data-name, .name, .status {
     font-size: 0.8em;
   }
   .chat .chat-message .fa-file-o, .chat .chat-message .fa-file-image-o {
