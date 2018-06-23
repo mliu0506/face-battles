@@ -45,7 +45,7 @@ function onSignIn(googleUser) {
   $(".user-photo").html("<img class='rounded-circle' src="+ photo +" alt='avatar' />");
   $(".chat-with").text(name);
   setCookie("fbuID", userKey, 30); //save the uID into the cookie
-  document.location.href = "chatroom.html";   //open the same window and got to chatroom page
+ 
 
 }
 //Google Sign out function
