@@ -241,9 +241,30 @@ body {
 
 
 @media only screen and (max-width: 800px){
+  body {
+    font: 0.8em ;
+  }
+  .chat .chat-history .message {
+    font-size: 0.8em;
+  }
+  .chat .chat-message .fa-file-o, .chat .chat-message .fa-file-image-o {
+    font-size: 0.8em;
+  }
+  .chat .chat-message button {
+    font-size: 0.8em;
+  }
+  .chat .chat-header .fa-star {
+    font-size: 0.8em
+  }
+  .online, .offline, .me {
+    font-size: 0.5em;
+  }
+  .chat .chat-message textarea {
+    font: 0.8em;
+  }
+  
   .chat {
     width: 100%;
-
   }
 
   .chat .chat-history .other-message:after {
@@ -258,8 +279,27 @@ body {
   .chat .chat-history .message:after {
     left: 20%;
   }
+  .people-list input {
+    font-size: 0.8em;
+  }
+
+  .people-list {
+    width: 18%;
+  }
+  .people-list ul {
+    padding: 0px;
+
+  }
+  .people-list .about {
+    padding-left: 0px;
+  }
 
   .people-list .search {
     padding: 20px 5px 0 0;
+  }
+
+  .people-list img {
+    height:30px;
+    width:30px;
   }
 }
