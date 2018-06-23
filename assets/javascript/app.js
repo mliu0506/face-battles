@@ -46,6 +46,7 @@ function onSignIn(googleUser) {
   $(".chat-with").text(name);
   setCookie("fbuID", userKey, 30); //save the uID into the cookie
   $("#loginMsg").append("<p> Welcome!  You are successful login</p>");
+  $("#loginComplete").show();
 
 }
 //Google Sign out function
@@ -74,6 +75,7 @@ function startGame() {
     //Hide the default Game button
     $(".delete-game").hide();
     $(".create-game").show();
+    $("#loginComplete").hide();
     
     // Check to see if there is Cookie
     if (userKey == "") {
