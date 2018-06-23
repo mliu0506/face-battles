@@ -24,6 +24,7 @@
 
 function joinGame() {
   $(".gameroom").on("click",".join-game",function(event){
+    if (userKey != "") {
     event.preventDefault();
     var gameID = $(this).attr("data-value");
     setCookie("p2gameID", gameID, 30); //save the uID into the cookie
@@ -38,6 +39,7 @@ function joinGame() {
     }
 
     document.location.href = "gamePage.html";   //open the same window
+  }
   });
 }
 
