@@ -247,6 +247,12 @@ body {
   .chat .chat-history .message {
     font-size: 0.8em;
   }
+  .message-data-time {
+    font-size: 0.8em;
+  }
+  .message-data-name, .name {
+    font-size: 0.8em;
+  }
   .chat .chat-message .fa-file-o, .chat .chat-message .fa-file-image-o {
     font-size: 0.8em;
   }

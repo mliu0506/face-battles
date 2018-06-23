@@ -64,7 +64,7 @@
     <h3>Face Battles</h3>
     <p>social community / network
       <br/>
-      <a  onClick="location.href='chatroom.html';" class="button">
+      <a  class="button">
       <span>Find Out More</span>
       </a>
     </p>
@@ -93,8 +93,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<!-- Firebase Reference -->
-<script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+
 
 <!-- AJAX Google jQuery CDN  -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -102,8 +101,7 @@
  <!-- jQuery -->
  <script src="https://code.jquery.com/jquery.js"></script>
 
-<!-- This program java script-->
-<script src="assets/javascript/app.js"></script>
+
 
 <!-- This program java script-->
 <script src="assets/javascript/coverflow.js"></script>
@@ -114,7 +112,21 @@
 <!-- This program java script-->
 <script src="assets/javascript/cookie.js"></script>
 
+<script> 
 
+$(".button").on("click",function() {
+
+     var cookieKey= getCookie("fbuID"); //get the uID from the cookie
+     console.log("Cookie Key: " + cookieKey);
+     if ((cookieKey == "") || (cookieKey == null)) {
+      location.href="login.html";
+     }else{
+      location.href="chatroom.html";
+     }
+    
+
+});
+</script>
 
 
 
