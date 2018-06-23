@@ -81,8 +81,6 @@ function startGame() {
      console.log("Cookie Key: " + cookieKey);
      if ((cookieKey == "") || (cookieKey == null)) {
           cookieKey = ""; //if no cookie set Null and go to login page to login first
-         // window.open("login.html", '_blank'); //open the login window
-          //document.location.href = "login.html";   //open the same window
           $(".chat-header").prepend("<p><strong> Please go to user login page<strong></P>");
      } else {
         //lookup the photo and the name
@@ -198,7 +196,7 @@ function renderChatRoomHeader() {
       var d = new Date();
       var timestamp = d.toUTCString();
       console.log("Message : "+comment);
-      if((comment != "")&&((userKey != "")||(userKey!= null))) {
+      if((comment != "") && (userKey != "")) {
         chatRef.push({uID:userKey,name:name,photo:photo,message:comment,timestamp:timestamp});
         $('#message-to-send').val(""); // empty the input text field
       }
