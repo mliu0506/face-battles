@@ -45,6 +45,7 @@ function onSignIn(googleUser) {
   $(".user-photo").html("<img class='rounded-circle' src="+ photo +" alt='avatar' />");
   $(".chat-with").text(name);
   setCookie("fbuID", userKey, 30); //save the uID into the cookie
+  document.location.href = "chatroom.html";   //open the same window and got to chatroom page
 
 }
 //Google Sign out function
@@ -75,11 +76,12 @@ function startGame() {
     $(".create-game").show();
     
     // Check to see if there is Cookie
-    if (userKey === "") {
+    if (userKey == "") {
      var cookieKey= getCookie("fbuID"); //get the uID from the cookie
      console.log("Cookie Key: " + cookieKey);
-     if ((cookieKey === "") || (cookieKey === null)) {
-          cookieKey = ""; //if no cookie set Null
+     if ((cookieKey == "") || (cookieKey == null)) {
+          cookieKey = ""; //if no cookie set Null and go to login page to login first
+          document.location.href = "login.html";   //open the same window
      } else {
         //lookup the photo and the name
         usersRef.child(cookieKey).once("value",function(childSnapshot){
@@ -117,8 +119,8 @@ function startGame() {
       var timestamp = childSnapshot.val().timestamp;
       var d = new Date();
       var n = d.toUTCString();
-      if (message !== undefined) {
-        if (userID === userKey) {
+      if (message != undefined) {
+        if (userID == userKey) {
           $('.message-box').prepend('<div><div class="message-data"><span class="message-data-name"><i class="fa fa-circle online"></i>'+username+'</span><span class="message-data-time" >'+timestamp+'</span></div><div class="message my-message">'+message+'</div></div>');
       
         } else {

@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <!--Google Login meta-->
-    <meta name="google-signin-client_id" content="369092792103-ekret3hb9qh5jtrdp1s0a15ql067378n.apps.googleusercontent.com">
+   <!--Google Login meta-->
+   <meta name="google-signin-client_id" content="369092792103-ekret3hb9qh5jtrdp1s0a15ql067378n.apps.googleusercontent.com">
 
    
     <title>Face Battles</title>
@@ -14,25 +12,23 @@
     <!--  Bootstrap 4 CSS -->
     
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-      
+   
     <!--Awesome Font  -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
     <!--Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
 
-  
     <!-- Style CSS -->
-    <link rel="stylesheet" href="assets/css/chatroom.css">
+    <link rel="stylesheet" href="assets/css/elasticslider.css">
+    
 
     <!-- Siderbar CSS -->
     <link rel="stylesheet" href="assets/css/sidebar.css">
 
-
-
 </head>
 <body>
-<!-- Navigation -->
+  <!-- Navigation -->
 <a id="menu-toggle" href="#" class="btn btn-light btn-sm toggle"><i class="fa fa-bars" data-toggle="tooltip" title="MENU"></i></a>
 <nav id="sidebar-wrapper">
   <ul class="sidebar-nav">
@@ -53,77 +49,19 @@
     <li>
       <a href="gameroom.html" onclick="$('#menu-close').click();">Game Room</a>
     </li>
-
     <li>
       <a id="signout" href="#" onclick="$('#menu-close').click();">User Logout</a>
     </li>
   </ul>
 </nav>
 
-
-
-
-<!-- Chat Room -->
-<div class="container">
-  <div class="people-list" id="people-list">
-    <div class="search">
-      <input type="text" placeholder="search" />
-      <i class="fa fa-search"></i>
+<section class = "row col-12 justify-content-center align-items-center" >
+  
+    <div class="slide"><p> Please sign in with your Google account: </p>
+        <!--Google Sign-in button -->
+        <div id="signin" class="g-signin2" data-onsuccess="onSignIn"></div>
     </div>
-<!-- User List-->
-    <ul class="list">
-  </div>
-
-  
-<!--My Chat Header -->      
-     
-  <div class="chat">
-    <div class="chat-header clearfix">
-      <!--Google Sign-in button -->
-      <div id="signin" class="g-signin2 justify-content-right" data-onsuccess="onSignIn"></div>
-      <div class="user-photo"></div>
-    
-      <div class="chat-about">
-        <div class="chat-with"></div>
-        <div class="chat-num-messages"></div>
-        <button class="create-game">
-            Create Game
-        </button>
-        <button class="delete-game">
-          Delete Game
-      </button>
-      </div>
-      <i class="fa fa-star"></i>
-      
-
-    </div> <!-- end chat-header -->
-
-    <!-- Chat Message -->   
-    <div class="chat-history">
-      <ul class="message-box">
-                
-      </ul>
-      
-    </div> <!-- end chat-history -->
-    
-    <div class="chat-message clearfix">
-      <textarea name="message-to-send" id="message-to-send" placeholder ="Type your message" rows="3"></textarea>
-              
-      <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
-      <i class="fa fa-file-image-o"></i>
-      
-      <button class="chat-submit">Send</button>
-
-    </div> <!-- end chat-message -->
-    
-  </div> <!-- end chat -->
-  
-</div> <!-- end container -->
-
-<!-- Game Room-->
-
-
-
+</section>
 
 <!--  Bootstrap 4 JavaScript -->
 
@@ -139,21 +77,24 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
- <!-- jQuery -->
- <script src="https://code.jquery.com/jquery.js"></script>
-
 <!-- Google Login-->
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 
+ <!-- jQuery -->
+
+ <script src="https://code.jquery.com/jquery.js"></script>
+
+ <!-- This program java script-->
+<script src="assets/javascript/app.js"></script>
 
 <!-- This program java script-->
-<script src="assets/javascript/app.js"></script>
+<script src="assets/javascript/gamehistory.js"></script>
+
 
 <!-- This program java script-->
 <script src="assets/javascript/sidebar.js"></script>
 
 <!-- This program java script-->
 <script src="assets/javascript/cookie.js"></script>
-
 </body>
 </html>
