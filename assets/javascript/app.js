@@ -238,7 +238,7 @@ function renderChatRoomHeader() {
         gamesRef.child(gameID).child("players").child("player1").update({uID:userKey,win:0,lose:0,name:name,status:'pending_player2'});
         $(".delete-game").show();
         $(".create-game").hide();
-        chatRef.push({uID:userKey,name:name,photo:photo,message:"Who wanna to Face Battles with " + name + ", please join the game in game room.",timestamp:timestamp});
+        chatRef.push({uID:userKey,name:name,photo:photo,message:"Who wanna to play Face Battles with " + name + ", please go to Game Room.",timestamp:timestamp});
       }
       
       document.location.href = "gamePage.html";   //open the same window
