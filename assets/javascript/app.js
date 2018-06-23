@@ -81,7 +81,8 @@ function startGame() {
      console.log("Cookie Key: " + cookieKey);
      if ((cookieKey == "") || (cookieKey == null)) {
           cookieKey = ""; //if no cookie set Null and go to login page to login first
-          document.location.href = "login.html";   //open the same window
+          window.open("login.html", '_blank'); //open the login window
+          //document.location.href = "login.html";   //open the same window
      } else {
         //lookup the photo and the name
         usersRef.child(cookieKey).once("value",function(childSnapshot){
