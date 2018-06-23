@@ -57,11 +57,15 @@
 
 <section class = "row col-12 justify-content-center align-items-center" >
   
-    <div class="slide"><p id="loginMsg"> Please sign in with your Google account: </p>
+    <div class="slide">      
+        <p id="loginMsg"> Please sign in with your Google account: </p>
+        <p id="loginCompleteMsg"> Welcome! You are successful login, please click complete. </p>
         <!--Google Sign-in button -->
-        <div id="signin" class="g-signin2 justify-content-center" data-onsuccess="onSignIn"></div>
-        <div class="row col-12 col-sm-12 justify-content-center">
-          <button id="loginComplete" class="btn btn-secondary">Complete</button>
+        <div class="row justify-content-center">
+            <div id="signin" class="g-signin2 justify-content-center" data-onsuccess="onSignIn"></div>
+        </div>
+        <div class="row justify-content-center">
+            <button id="loginCompleteBtn" onclick='location.href="chatroom.html";' class="btn btn-secondary">Complete</button>
       </div>   
     
     </div>

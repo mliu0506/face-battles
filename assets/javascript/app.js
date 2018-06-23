@@ -45,8 +45,8 @@ function onSignIn(googleUser) {
   $(".user-photo").html("<img class='rounded-circle' src="+ photo +" alt='avatar' />");
   $(".chat-with").text(name);
   setCookie("fbuID", userKey, 30); //save the uID into the cookie
-  $("#loginMsg").append("<p> Welcome!  You are successful login</p>");
-  $("#loginComplete").show();
+  $("#loginCompleteBtn").show();
+  $("#loginCompleteMsg").show();
 
 }
 //Google Sign out function
@@ -75,7 +75,8 @@ function startGame() {
     //Hide the default Game button
     $(".delete-game").hide();
     $(".create-game").show();
-    $("#loginComplete").hide();
+    $("#loginCompleteBtn").hide();
+    $("#loginCompleteMsg").hide();
     
     // Check to see if there is Cookie
     if (userKey == "") {
