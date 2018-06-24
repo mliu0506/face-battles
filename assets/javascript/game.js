@@ -224,7 +224,7 @@ $(function(){
                 image_base64: data64
             },
             error: function(xhr, status, error) {  //if Error return disply error message
-                $("#playerImage").append(error+"\nPlease click Reset.");
+                $("#playerImage").append("Error occur please click Reset.");
                 makeButton(); //if Error allow user to reset
              }
         }).then(function(response){
@@ -370,6 +370,13 @@ $(function(){
         console.log("button Reset clicked");
         $("#playerImage").empty();
         playerRef.update({status: 'pending'}); // Reset to pending
+        $("#my_camera").css({display: 'block'});
+        if (!camOn){
+            //Active and attach camera to DOM element
+            Webcam.attach('#my_camera');
+            camOn = true;
+        }
+        playerRef.update({status: 'stand_by'});
 
     });
 
