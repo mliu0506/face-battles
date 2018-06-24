@@ -172,14 +172,6 @@ $(function(){
     
     //FUNCTIONS
     function makeButton(){
-        //$("#playerImage").empty();
-        //var newButton = $("<button>");
-        //newButton.attr({
-        //    class: "btn btn-success m-2",
-        //    id: "gameReady"
-        //});
-        //newButton.text("Take Picture");
-        //$("#playerImage").append(newButton);
         $("#gameReady").show();
         $("#leaveGame").show();
     }
@@ -357,7 +349,6 @@ $(function(){
     $("#gameReady").on("click", function(){
         console.log("button clicked");
         $("#playerImage").empty();
-        $("#gameReady").hide();
         $("#my_camera").css({display: 'block'});
         if (!camOn){
             //Active and attach camera to DOM element
