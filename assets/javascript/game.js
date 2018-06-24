@@ -193,7 +193,6 @@ $(function(){
         $("#playerImage").text(timer);
         if (timer <= 0 ){
             clearInterval(intervalID);
-            $("#playerImage").append("Error encounted please click reset!");
             makeButton(); //if Error allow user to reset
         }
     }
@@ -225,7 +224,7 @@ $(function(){
                 image_base64: data64
             },
             error: function(xhr, status, error) {  //if Error return disply error message
-                $("#playerImage").append("Error encounted please click reset!");
+                $("#playerImage").append(error+"\nPlease click Reset.");
                 makeButton(); //if Error allow user to reset
              }
         }).then(function(response){
