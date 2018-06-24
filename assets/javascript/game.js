@@ -96,7 +96,7 @@ $(function(){
 
     //Listen event for players status
     gamesRef.child(gameID).child('players').on('value', function(playerSnap){
-        if ((playerSnap.val().player1.status == 'stand_by' && playerSnap.val().player2.status == 'stand_by') || (playerSnap.val().player1.status == 'stand_by' && playerSnap.val().player2.status == 'picture_taken') || (playerSnap.val().player1.status == 'picture_taken' && playerSnap.val().player2.status == 'stand_by')){
+        if (playerSnap.val().player1.status == 'stand_by' && playerSnap.val().player2.status == 'stand_by') {
             startRPS();
         }
         else if (playerSnap.val().player1.status == 'picture_taken' && playerSnap.val().player2.status == 'picture_taken'){
