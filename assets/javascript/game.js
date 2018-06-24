@@ -181,11 +181,13 @@ $(function(){
         //newButton.text("Take Picture");
         //$("#playerImage").append(newButton);
         $("#gameReady").show();
+        $("#leaveGame").show();
     }
 
     function startRPS(){
         $("#opponentImage").empty();
         $("#gameReady").hide();
+        $("#leaveGame").hide();
         timer = 5;
         clearInterval(intervalID);
         intervalID = setInterval(countdown, 1000);
@@ -352,7 +354,7 @@ $(function(){
 
 
     //Click event for gameReady button
-    $("#playerZone").on("click", "#gameReady", function(){
+    $("#gameReady").on("click", function(){
         console.log("button clicked");
         $("#playerImage").empty();
         $("#gameReady").hide();
