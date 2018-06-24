@@ -149,7 +149,7 @@ $(function(){
                 timestamp: timestamp
             });
             }
-            //makeButton();
+            makeButton();
         }
         //Display player score
        if (userKey == gameID){
@@ -160,19 +160,19 @@ $(function(){
        //     $("#playerName").text(playerSnap.val().player2.name);
             var opponentRef = playerSnap.val().player1;
         }
-        $("#playerWin").text(winScore);
-        $("#playerLose").text(loseScore);
-        if(opponentRef != null){
-            $("#opponentWin").text(opponentRef.win);
-            $("#opponentLose").text(opponentRef.lose);
-        }
+        //$("#playerWin").text(winScore);
+        //$("#playerLose").text(loseScore);
+        //if(opponentRef != null){
+        //    $("#opponentWin").text(opponentRef.win);
+        //    $("#opponentLose").text(opponentRef.lose);
+        //}
     });
 
 
     
     //FUNCTIONS
     function makeButton(){
-        //$("#playerImage").empty();
+        $("#playerImage").empty();
         var newButton = $("<button>");
         newButton.attr({
             class: "btn btn-success m-2",
@@ -195,6 +195,7 @@ $(function(){
         $("#playerImage").text(timer);
         if (timer <= 0 ){
             clearInterval(intervalID);
+            makeButton();
         }
     }
 
