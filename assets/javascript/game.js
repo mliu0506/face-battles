@@ -193,6 +193,7 @@ $(function(){
         $("#playerImage").text(timer);
         if (timer <= 0 ){
             clearInterval(intervalID);
+            makeButton();
         }
     }
 
