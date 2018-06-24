@@ -222,7 +222,10 @@ $(function(){
                 api_secret: "QpE4oXV2onpKepQ65Nx0gE99-50Xmwrj",
                 return_attributes: "emotion",
                 image_base64: data64
-            }
+            },
+            error: function(xhr, status, error) {  //if Error return disply error message
+                $("#gameReset").show(); //if Error allow user to reset
+             }
         }).then(function(response){
             //DEBUG LOG
             /*console.log(response.faces);
