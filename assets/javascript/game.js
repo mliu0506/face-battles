@@ -174,12 +174,14 @@ $(function(){
     function makeButton(){
         $("#gameReady").show();
         $("#leaveGame").show();
+        $("#gameReset").show();
     }
 
     function startRPS(){
         $("#opponentImage").empty();
         $("#gameReady").hide();
         $("#leaveGame").hide();
+        $("#gameReset").hide();
         timer = 5;
         clearInterval(intervalID);
         intervalID = setInterval(countdown, 1000);
@@ -191,7 +193,6 @@ $(function(){
         $("#playerImage").text(timer);
         if (timer <= 0 ){
             clearInterval(intervalID);
-            makeButton();
         }
     }
 
@@ -347,7 +348,7 @@ $(function(){
 
     //Click event for gameReady button
     $("#gameReady").on("click", function(){
-        console.log("button clicked");
+        console.log("button Photo clicked");
         $("#playerImage").empty();
         $("#my_camera").css({display: 'block'});
         if (!camOn){
@@ -358,8 +359,14 @@ $(function(){
         playerRef.update({status: 'stand_by'});
 
     });
+    
+    //Click event for gameReset button
+    $("#gameReset").on("click", function(){
+        console.log("button Reset clicked");
+        $("#playerImage").empty();
+        playerRef.update({status: 'pending'}); // Reset to pending
 
-
+    });
 
     //TODO//
     //Click event for leaving game
