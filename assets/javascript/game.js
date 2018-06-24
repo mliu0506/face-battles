@@ -160,30 +160,32 @@ $(function(){
        //     $("#playerName").text(playerSnap.val().player2.name);
             var opponentRef = playerSnap.val().player1;
         }
-        //$("#playerWin").text(winScore);
-        //$("#playerLose").text(loseScore);
-        //if(opponentRef != null){
-        //    $("#opponentWin").text(opponentRef.win);
-        //    $("#opponentLose").text(opponentRef.lose);
-        //}
+        $("#playerWin").text(winScore);
+        $("#playerLose").text(loseScore);
+        if(opponentRef != null){
+            $("#opponentWin").text(opponentRef.win);
+            $("#opponentLose").text(opponentRef.lose);
+        }
     });
 
 
     
     //FUNCTIONS
     function makeButton(){
-        $("#playerImage").empty();
-        var newButton = $("<button>");
-        newButton.attr({
-            class: "btn btn-success m-2",
-            id: "gameReady"
-        });
-        newButton.text("Take Picture");
-        $("#playerImage").append(newButton);
+        //$("#playerImage").empty();
+        //var newButton = $("<button>");
+        //newButton.attr({
+        //    class: "btn btn-success m-2",
+        //    id: "gameReady"
+        //});
+        //newButton.text("Take Picture");
+        //$("#playerImage").append(newButton);
+        $("#gameReady").show();
     }
 
     function startRPS(){
         $("#opponentImage").empty();
+        $("#gameReady").hide();
         timer = 5;
         clearInterval(intervalID);
         intervalID = setInterval(countdown, 1000);
@@ -353,7 +355,7 @@ $(function(){
     $("#playerZone").on("click", "#gameReady", function(){
         console.log("button clicked");
         $("#playerImage").empty();
-        $("#gameReady").empty();
+        $("#gameReady").hide();
         $("#my_camera").css({display: 'block'});
         if (!camOn){
             //Active and attach camera to DOM element
