@@ -218,8 +218,8 @@ $(function(){
             url: queryURL,
             method: "POST",
             data: {
-                api_key: "-5Nmk0fyCtdxK_l0lEvhOpHBMXj8g2Q7",
-                api_secret: "QpE4oXV2onpKepQ65Nx0gE99-50Xmwrj",
+                api_key: "bazfCdYZ0DxuHqKoK1P5uh0p-4TN1UUt",
+                api_secret: "p9FxLPBy35lWT82lmepXMqvFCNdPYIpU",
                 return_attributes: "emotion",
                 image_base64: data64
             },
