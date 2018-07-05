@@ -224,7 +224,7 @@ $(function(){
                 image_base64: data64
             },
             error: function(xhr, status, error) {  //if Error return disply error message
-                $("#playerImage").append("Error occur please click Reset.");
+                $("#playerImage").append(error + " Error occur please click Reset.");
                 makeButton(); //if Error allow user to reset
              }
         }).then(function(response){
