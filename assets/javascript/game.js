@@ -225,7 +225,7 @@ $(function(){
             }
             ,
             error: function(xhr, status, error) {  //if Error return disply error message
-                $("#playerImage").append("xhr:" + xhr + "status:" + status + "error:" + error +"/n Error occur please click Reset.");
+                $("#playerImage").append("Code:" + xhr.responseText + " Error occur please click Reset.");
                 makeButton(); //if Error allow user to reset
              }
         }).then(function(response){
